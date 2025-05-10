@@ -27,7 +27,6 @@
           buildInputs = devTools ++ [ pkgs.nixpkgs-fmt ];
           shellHook = ''
             echo "Welcome to the ccc development environment!"
-            echo "Available tools: cabal, haskell-language-server, hlint, ormolu, ghcid"
           '';
         };
 
