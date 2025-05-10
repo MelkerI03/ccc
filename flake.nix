@@ -10,13 +10,13 @@
     flake-utils.lib.eachDefaultSystem (system:
       let
         pkgs = import nixpkgs { inherit system; };
-        haskellPkgs = pkgs.haskellPackages;
-        devTools = [
-          haskellPkgs.cabal-install
-          haskellPkgs.haskell-language-server
-          haskellPkgs.hlint
-          haskellPkgs.ormolu
-          haskellPkgs.ghcid
+        haskellPkgs = pkgs.haskell.packages.ghc964;
+        devTools = with haskellPkgs; [
+          cabal-install
+          haskell-language-server
+          hlint
+          ormolu
+          ghcid
         ];
       in
       {
