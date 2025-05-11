@@ -1,3 +1,4 @@
 write_a_c_compiler
 result
-dist-newstyle/*
+dist-newstyle
+.direnv
