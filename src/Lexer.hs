@@ -1,25 +1,10 @@
 module Lexer where
 
-import Tokenizer
-import Data.Char
-import Data.List
+import Types
+import Tokenizer (tokenize)
+import Data.Char (isNumber, isLetter)
+import Data.List (findIndex, isPrefixOf, tails)
 import Data.Maybe (isJust)
-
-keywords :: [String]
-keywords = ["int", "return"]
-
-symbols :: [Char]
-symbols = ['{', '}', '(', ')', ';']
-
-data Keyword = IntKw | ReturnKw
-  deriving (Show, Eq)
-
-data Token
-  = TokKeyword Keyword
-  | TokIdentifier String
-  | TokSymbol Char
-  | TokNumber Int
-  deriving (Show, Eq)
 
 lex :: FilePath -> IO [Token]
 lex path = do
